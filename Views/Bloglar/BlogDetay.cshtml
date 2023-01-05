@@ -1,0 +1,53 @@
+﻿@model Sarih_Law.Models.BlogYorum
+
+@{ Layout = "/Views/Shared/AsilLayout.cshtml"; }
+
+
+
+<!-- Single Page Start -->
+<div class="single">
+    <div class="container">
+        @foreach (var x in Model.Deger1)
+        {
+
+<div class="section-header">
+    <h2>@x.Baslik</h2>
+</div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <img class="img-fluid rounded" src="@x.BlogImage" alt="Image">
+                        <p>
+                            @Html.Raw(x.Aciklama)
+                        </p>
+
+                    </div>
+                </div>}
+
+
+    </div>
+    @foreach (var y in Model.Deger2)
+    {
+<ul class="comment-list">
+
+    <li>
+        <img src="~/img/avatar.png" class="img-responsive" alt="">
+        <div class="desc">
+            <p>@y.KullaniciAdi: @y.Yorum </p>
+        </div>
+        <div class="clearfix"></div>
+    </li>
+</ul>}
+    @await Component.InvokeAsync("YorumYap")
+
+    <!-- Single Page End -->
+
+
+
+
+    <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+</div>
+
+<!-- JavaScript Libraries -->
+<script src="~/ckeditor/ckeditor.js"></script>
+<!-- Template Javascript -->

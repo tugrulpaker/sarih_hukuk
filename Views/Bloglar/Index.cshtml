@@ -1,0 +1,41 @@
+﻿@model Sarih_Law.Models.BlogYorum
+@{ Layout = "/Views/Shared/AsilLayout.cshtml"; }
+<!-- Blog Start -->
+<div class="blog">
+    <div class="container">
+        <div class="section-header">
+            <h2>Bloglarımız</h2>
+        </div>
+
+        <div class="row blog-page">
+            @foreach (var x in Model.Deger1)
+            {
+<div class="col-lg-4 col-md-6 blog-item">
+    <img src="~/img/seba.jpg" alt="Blog">
+    <h3>@x.Baslik</h3>
+    <div class="meta">
+        <i class="fa fa-list-alt"></i>
+        <a href="">Civil Law</a>
+        <i class="fa fa-calendar-alt"></i>
+        <p>@x.Tarih.ToString("dd.MM.yyyy")</p>
+    </div>
+    <p>
+        @Html.Raw(x.Aciklama.Substring(0, 30))
+    </p>
+    <a class="btn" href="/Bloglar/BlogDetay/@x.ID">Read More <i class="fa fa-angle-right"></i></a>
+</div>}
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Blog End -->
