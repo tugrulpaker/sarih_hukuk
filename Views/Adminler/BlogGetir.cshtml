@@ -21,7 +21,9 @@
     @Html.LabelFor(x => x.Tarih)
     @Html.TextBoxFor(x => x.Tarih, new { @class = "form-control" })
     <br />
-
+    @Html.LabelFor(x => x.Kategori)
+    @Html.TextBoxFor(x => x.Kategori, new { @class = "form-control" })
+    <br />
     <input type="file" name="fileobj" />
     <br />
     @Html.LabelFor(x => x.Aciklama)

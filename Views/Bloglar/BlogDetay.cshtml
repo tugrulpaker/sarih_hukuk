@@ -16,7 +16,10 @@
 
                 <div class="row">
                     <div class="col-12">
-                        <img class="img-fluid rounded" src="@x.BlogImage" alt="Image">
+                        <div class="ratio ratio-9x9">
+                            <img class="img-fluid rounded " src="@x.BlogImage" alt="Image">
+
+                        </div>
                         <p>
                             @Html.Raw(x.Aciklama)
                         </p>

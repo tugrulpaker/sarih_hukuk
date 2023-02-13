@@ -12,10 +12,13 @@ namespace Sarih_Law.Models
         public string Baslik { get; set; }
         public DateTime Tarih { get; set; }
 
-       
+        public string Yazar { get; set; }
         public string Aciklama { get; set; }
-
+        public string Kategori { get; set; }
         public string BlogImage { get; set; }
         public ICollection<Yorumlar> Yorumlars { get; set; }
+
+
     }
+
 }

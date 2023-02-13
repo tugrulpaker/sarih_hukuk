@@ -16,6 +16,7 @@ namespace Sarih_Law.Controllers
     public class Adminler : Controller
     {
         public List<Blog> c;
+        public List<Iletisim> z;
         public ApplicationDbContext _db;
         public IWebHostEnvironment _iweb;
         public Adminler(ApplicationDbContext db, IWebHostEnvironment iweb)
@@ -42,13 +43,8 @@ namespace Sarih_Law.Controllers
         [HttpPost]
         public IActionResult YeniBlog(IFormFile fileobj, Blog p)
         {
-            if (p.BlogImage == null)
-            {
-                _db.Add(p);
-                _db.SaveChanges();
-            }
-            else
-            {
+          
+            
                 var imgext = Path.GetExtension(fileobj.FileName);
                 if (imgext == ".jpg" || imgext == ".jpeg" || imgext == ".png")
                 {
@@ -61,7 +57,7 @@ namespace Sarih_Law.Controllers
                     _db.SaveChanges();
 
                 }
-            }
+            
             return RedirectToAction("Index");
 
             //return View();
@@ -95,7 +91,8 @@ namespace Sarih_Law.Controllers
                     blg.Aciklama = b.Aciklama;
                     blg.Baslik = b.Baslik;
                     blg.Tarih = b.Tarih;
-
+                    // blg.Yazar = b.Yazar;
+                    blg.Kategori = b.Kategori;
                     b.BlogImage = blg.BlogImage;
                     _db.SaveChanges();
                 }
@@ -113,6 +110,8 @@ namespace Sarih_Law.Controllers
                         blg.Baslik = b.Baslik;
                         blg.BlogImage = @"/Image/" + fileobj.FileName;
                         blg.Tarih = b.Tarih;
+                        // blg.Yazar = b.Yazar;
+                        blg.Kategori = b.Kategori;
 
 
                         _db.SaveChanges();
@@ -134,6 +133,8 @@ namespace Sarih_Law.Controllers
                         blg.Baslik = b.Baslik;
                         blg.BlogImage = @"/Image/" + fileobj.FileName;
                         blg.Tarih = b.Tarih;
+                        //  blg.Yazar = b.Yazar;
+                        blg.Kategori = b.Kategori;
 
 
                         _db.SaveChanges();
@@ -147,6 +148,8 @@ namespace Sarih_Law.Controllers
                     blg.Aciklama = b.Aciklama;
                     blg.Baslik = b.Baslik;
                     blg.Tarih = b.Tarih;
+                    // blg.Yazar = b.Yazar;
+                    blg.Kategori = b.Kategori;
 
                     b.BlogImage = blg.BlogImage;
                     _db.SaveChanges();
@@ -187,6 +190,15 @@ namespace Sarih_Law.Controllers
             yrm.Yorum = y.Yorum;
             _db.SaveChanges();
             return RedirectToAction("YorumListesi");
+
+        }
+        [Authorize]
+        public IActionResult IletisimGoruntule()
+        {
+            z = _db.Iletisims.ToList();
+
+
+            return View(z);
 
         }
     }

@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Sarih_Law.Models;
 
 namespace Sarih_Law.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230111213624_besinci")]
+    partial class besinci
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -65,30 +67,6 @@ namespace Sarih_Law.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("Blogs");
-                });
-
-            modelBuilder.Entity("Sarih_Law.Models.Iletisim", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
-
-                    b.Property<string>("AdSoyad")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Konu")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Mail")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Mesaj")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("Iletisims");
                 });
 
             modelBuilder.Entity("Sarih_Law.Models.Yorumlar", b =>
