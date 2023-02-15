@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Sarih_Law.Models;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -21,7 +22,7 @@ namespace Sarih_Law.Controllers
         BlogYorum by = new BlogYorum();
         public IActionResult Index()
         {
-            by.Deger1 = _db.Blogs.ToList();
+            by.Deger1 = _db.Blogs.Include(b => b.Alan).ToList();
             return View(by);
         }
         public ActionResult BlogDetay(int id) //Blog basliginin üstüne bastigimda id parametresiyle değer döndürüp beni detayblog viewine aktaricak

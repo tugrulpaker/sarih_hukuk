@@ -1,0 +1,18 @@
+﻿
+@model Sarih_Law.Models.Alan
+
+@{
+    ViewBag.Title = "YeniAlan";
+    Layout = "/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<h2>Yeni Alan Ekleme</h2>
+<br />
+<form class="form-group" method="post">
+    @Html.LabelFor(x => x.AlanAdi)
+    @Html.TextBoxFor(x => x.AlanAdi, new { @class = "form-control" })
+    <br />
+   
+    <button class="btn btn-primary">Alanı Ekle</button>
+</form>

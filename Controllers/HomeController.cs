@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Sarih_Law.Models;
 
@@ -20,8 +21,8 @@ namespace Sarih_Law.Controllers
         }
         public IActionResult Index()
         {
-            c = _db.Blogs.ToList();
-            return View(c);
+            var blogs = _db.Blogs.Include(b => b.Alan).ToList();
+            return View(blogs);
         }
 
         public IActionResult Privacy()

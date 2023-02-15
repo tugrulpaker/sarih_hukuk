@@ -17,8 +17,14 @@ namespace Sarih_Law.Models
         public string Kategori { get; set; }
         public string BlogImage { get; set; }
         public ICollection<Yorumlar> Yorumlars { get; set; }
+        public Alan Alan { get; set; }
+
+
+
 
 
     }
+
+
 
 }

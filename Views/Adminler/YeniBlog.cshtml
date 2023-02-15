@@ -22,6 +22,9 @@
     @Html.LabelFor(x => x.Kategori)
     @Html.TextBoxFor(x => x.Kategori, new { @class = "form-control" })
     <br />
+    <label>Alan Seçiniz</label>
+    @Html.DropDownListFor(x => x.Alan.ID, (List<SelectListItem>)ViewBag.dgr,new{@class="form-control"})
+    <br />
     <input type="file" name="fileobj" />
 
     <br />

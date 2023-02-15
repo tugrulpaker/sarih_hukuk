@@ -15,6 +15,8 @@ namespace Sarih_Law.Models
         public DbSet<Blog> Blogs { get; set; }
         public DbSet<Yorumlar> Yorumlars { get; set; }
         public DbSet <Iletisim> Iletisims { get; set; }
+        public DbSet <Alan> Alans { get; set; }
 
     }
 }
+

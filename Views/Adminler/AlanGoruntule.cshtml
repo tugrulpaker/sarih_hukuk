@@ -1,0 +1,33 @@
+﻿@using Sarih_Law.Models
+@model List<Alan>
+@{
+    ViewBag.Title = "AlanGoruntule";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+
+
+}
+
+
+
+<h2>Alan Listesi</h2>
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>AlanAdi</th>
+        <th>SİL</th>
+
+
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.ID</td>
+            <td>@x.AlanAdi</td>
+            <td><a href="/Adminler/AlanSil/@x.ID" class="btn btn-danger">Sil</a></td>
+
+        </tr>
+    }
+
+</table>
+<a href="/Adminler/YeniAlan/" class="btn btn-primary">Yeni Alan</a>

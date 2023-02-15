@@ -457,3 +457,5 @@
 /Users/tugrulpaker/Projects/Sarih_Law/Sarih_Law/obj/Debug/netcoreapp3.1/Sarih_Law.MvcApplicationPartsAssemblyInfo.cs
 /Users/tugrulpaker/Projects/Sarih_Law/Sarih_Law/obj/Debug/netcoreapp3.1/Razor/Views/Adminler/IletisimGoruntule.cshtml.g.cs
 /Users/tugrulpaker/Projects/Sarih_Law/Sarih_Law/obj/Debug/netcoreapp3.1/Razor/Views/Iletisimler/Index.cshtml.g.cs
+/Users/tugrulpaker/Projects/Sarih_Law/Sarih_Law/obj/Debug/netcoreapp3.1/Razor/Views/Adminler/AlanGoruntule.cshtml.g.cs
+/Users/tugrulpaker/Projects/Sarih_Law/Sarih_Law/obj/Debug/netcoreapp3.1/Razor/Views/Adminler/YeniAlan.cshtml.g.cs

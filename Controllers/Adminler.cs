@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Sarih_Law.Models;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -17,6 +18,7 @@ namespace Sarih_Law.Controllers
     {
         public List<Blog> c;
         public List<Iletisim> z;
+        public List<Alan> k;
         public ApplicationDbContext _db;
         public IWebHostEnvironment _iweb;
         public Adminler(ApplicationDbContext db, IWebHostEnvironment iweb)
@@ -36,6 +38,13 @@ namespace Sarih_Law.Controllers
         [HttpGet]
         public IActionResult YeniBlog()
         {
+            List<SelectListItem> degerler = (from i in _db.Alans.ToList()
+                                             select new SelectListItem
+                                             {
+                                                 Text = i.AlanAdi,
+                                                 Value = i.ID.ToString()
+                                             }).ToList();
+            ViewBag.dgr = degerler;
             return View();
 
         }
@@ -43,9 +52,8 @@ namespace Sarih_Law.Controllers
         [HttpPost]
         public IActionResult YeniBlog(IFormFile fileobj, Blog p)
         {
-          
-            
-                var imgext = Path.GetExtension(fileobj.FileName);
+           
+            var imgext = Path.GetExtension(fileobj.FileName);
                 if (imgext == ".jpg" || imgext == ".jpeg" || imgext == ".png")
                 {
                     var uploadimg = Path.Combine(_iweb.WebRootPath, "Image", fileobj.FileName);
@@ -53,11 +61,14 @@ namespace Sarih_Law.Controllers
                     fileobj.CopyTo(stream);
                     stream.Close();
                     p.BlogImage = @"/Image/" + fileobj.FileName;
-                    _db.Add(p);
+                var ktg = _db.Alans.Where(x => x.ID == p.Alan.ID).FirstOrDefault();
+                p.Alan = ktg;
+                
+                    _db.Blogs.Add(p);
                     _db.SaveChanges();
 
                 }
-            
+           
             return RedirectToAction("Index");
 
             //return View();
@@ -76,7 +87,9 @@ namespace Sarih_Law.Controllers
         public IActionResult BlogGetir(int id)
         {
             var bl = _db.Blogs.Find(id);
+           
             return View("BlogGetir", bl);
+          
 
         }
 
@@ -88,10 +101,12 @@ namespace Sarih_Law.Controllers
                 var blg = _db.Blogs.Find(b.ID);
                 if (blg.BlogImage == null && fileobj==null)
                 {
+                  
                     blg.Aciklama = b.Aciklama;
                     blg.Baslik = b.Baslik;
                     blg.Tarih = b.Tarih;
                     // blg.Yazar = b.Yazar;
+                    //blg.Alan = b.Alan;
                     blg.Kategori = b.Kategori;
                     b.BlogImage = blg.BlogImage;
                     _db.SaveChanges();
@@ -110,6 +125,7 @@ namespace Sarih_Law.Controllers
                         blg.Baslik = b.Baslik;
                         blg.BlogImage = @"/Image/" + fileobj.FileName;
                         blg.Tarih = b.Tarih;
+                        //blg.Alan = b.Alan;
                         // blg.Yazar = b.Yazar;
                         blg.Kategori = b.Kategori;
 
@@ -133,6 +149,7 @@ namespace Sarih_Law.Controllers
                         blg.Baslik = b.Baslik;
                         blg.BlogImage = @"/Image/" + fileobj.FileName;
                         blg.Tarih = b.Tarih;
+                       // blg.Alan = b.Alan;
                         //  blg.Yazar = b.Yazar;
                         blg.Kategori = b.Kategori;
 
@@ -148,6 +165,7 @@ namespace Sarih_Law.Controllers
                     blg.Aciklama = b.Aciklama;
                     blg.Baslik = b.Baslik;
                     blg.Tarih = b.Tarih;
+                    //blg.Alan = b.Alan;
                     // blg.Yazar = b.Yazar;
                     blg.Kategori = b.Kategori;
 
@@ -199,6 +217,43 @@ namespace Sarih_Law.Controllers
 
 
             return View(z);
+
+        }
+
+        [Authorize]
+        [HttpGet]
+        public IActionResult YeniAlan()
+        {
+            return View();
+
+
+        }
+
+        [Authorize]
+        [HttpPost]
+        public IActionResult YeniAlan(Alan l)
+        {
+            _db.Add(l);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+
+
+        }
+
+        public IActionResult AlanGoruntule()
+        {
+            k = _db.Alans.ToList();
+            return View(k);
+        }
+        public IActionResult AlanSil(int id)
+        {
+            
+            var b = _db.Alans.Find(id);
+
+            _db.Alans.Remove(b);
+            
+            _db.SaveChanges();
+            return RedirectToAction("Index");
 
         }
     }
