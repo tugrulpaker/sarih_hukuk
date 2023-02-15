@@ -87,7 +87,14 @@ namespace Sarih_Law.Controllers
         public IActionResult BlogGetir(int id)
         {
             var bl = _db.Blogs.Find(id);
-           
+            List<SelectListItem> degerler = (from i in _db.Alans.ToList()
+                                             select new SelectListItem
+                                             {
+                                                 Text = i.AlanAdi,
+                                                 Value = i.ID.ToString()
+                                             }).ToList();
+            ViewBag.dgr = degerler;
+          
             return View("BlogGetir", bl);
           
 
@@ -109,6 +116,8 @@ namespace Sarih_Law.Controllers
                     //blg.Alan = b.Alan;
                     blg.Kategori = b.Kategori;
                     b.BlogImage = blg.BlogImage;
+                    var ktg = _db.Alans.Where(x => x.ID == b.Alan.ID).FirstOrDefault();
+                    blg.Alan.ID = ktg.ID;
                     _db.SaveChanges();
                 }
                 else if(blg.BlogImage== null && fileobj != null)
@@ -128,7 +137,8 @@ namespace Sarih_Law.Controllers
                         //blg.Alan = b.Alan;
                         // blg.Yazar = b.Yazar;
                         blg.Kategori = b.Kategori;
-
+                        var ktg = _db.Alans.Where(x => x.ID == b.Alan.ID).FirstOrDefault();
+                        blg.Alan.ID = ktg.ID;
 
                         _db.SaveChanges();
                     }
@@ -152,7 +162,8 @@ namespace Sarih_Law.Controllers
                        // blg.Alan = b.Alan;
                         //  blg.Yazar = b.Yazar;
                         blg.Kategori = b.Kategori;
-
+                        var ktg = _db.Alans.Where(x => x.ID == b.Alan.ID).FirstOrDefault();
+                        blg.Alan.ID = ktg.ID;
 
                         _db.SaveChanges();
                     }
@@ -170,6 +181,8 @@ namespace Sarih_Law.Controllers
                     blg.Kategori = b.Kategori;
 
                     b.BlogImage = blg.BlogImage;
+                    var ktg = _db.Alans.Where(x => x.ID == b.Alan.ID).FirstOrDefault();
+                    blg.Alan = ktg;
                     _db.SaveChanges();
 
                 }
@@ -254,6 +267,26 @@ namespace Sarih_Law.Controllers
             
             _db.SaveChanges();
             return RedirectToAction("Index");
+
+        }
+        public IActionResult AlanGetir(int id)
+        {
+
+            var al = _db.Alans.Find(id);
+
+            return View("AlanGetir", al);
+
+
+            
+        }
+        public IActionResult AlanGuncelle(Alan b)
+        {
+
+            var d = _db.Alans.Find(b.ID);
+            d.AlanAdi = b.AlanAdi;
+            _db.SaveChanges();
+            return RedirectToAction("AlanGoruntule");
+
 
         }
     }

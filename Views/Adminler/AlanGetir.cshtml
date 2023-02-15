@@ -1,0 +1,23 @@
+﻿@model Sarih_Law.Models.Alan
+
+@{
+
+
+    ViewBag.Title = "AlanGetir";
+    Layout = "/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Alan Güncelleme Sayfası</h2>
+<br />
+@using (Html.BeginForm("AlanGuncelle", "Adminler", FormMethod.Post)) // Yorum güncelle action result devrey girdiginde çalısacak ,, bloggüncelle adminler controllerinda ,,Sayfada butona tıklanıp post islemi gerçekletirildiginde calisacak
+{
+    @Html.LabelFor(x => x.ID)
+    @Html.TextBoxFor(x => x.ID, new { @class = "form-control", @readonly = "readonly" })
+    <br />
+    @Html.LabelFor(x => x.AlanAdi)
+    @Html.TextBoxFor(x => x.AlanAdi, new { @class = "form-control" })
+    <br />
+   
+
+    <button class="btn btn-success">Alanı Guncelle</button>
+}
