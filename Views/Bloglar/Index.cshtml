@@ -13,32 +13,34 @@
             <h2>Latest From Blog</h2>
         </div>
 
+        <div class="row blog-page">
+            
 
-        @foreach (var x in Model)
-        {
+                @foreach (var x in Model)
+                {
 
-<div class="blog-item">
+            <div class="col-lg-4 col-md-6 blog-item">
+                <img src="@x.BlogImage" alt="Blog">
+                <h3>@x.Baslik</h3>
+                <div class="meta">
+                    <i class="fa fa-list-alt"></i>
+                    <p>@x.Alan.AlanAdi</p>
+                    @* <a href="">Civil Law</a>*@
 
-    <img src="~/img/seba.jpg" alt="Blog">
-    <h3>@x.Baslik</h3>
-    <div class="meta">
-        <i class="fa fa-list-alt"></i>
-        <p>@x.Alan.AlanAdi</p>
-        @* <a href="">Civil Law</a>*@
+                    <i class="fa fa-calendar-alt"></i>
+                    <p>@x.Tarih.ToString("dd.MM.yyyy")</p>
+                </div>
+                <p>
 
-        <i class="fa fa-calendar-alt"></i>
-        <p>@x.Tarih.ToString("dd.MM.yyyy")</p>
-    </div>
-    <p>
+                    @{string metin = System.Text.RegularExpressions.Regex.Replace(x.Aciklama, @"<(.|\n)*?>", string.Empty); }
 
-        @{string metin = System.Text.RegularExpressions.Regex.Replace(x.Aciklama, @"<(.|\n)*?>", string.Empty); }
+                    @Html.Raw(metin.Substring(0, 61))
+                </p>
+                <a class="btn" href="/Bloglar/BlogDetay/@x.ID">Read More <i class="fa fa-angle-right"></i></a>
+            </div>}
 
-        @Html.Raw(metin.Substring(0, 61))
-    </p>
-    <a class="btn" href="/Bloglar/BlogDetay/@x.ID">Read More <i class="fa fa-angle-right"></i></a>
-
-</div>}
-
+            </div>
+        
 
 
         @* @Html.PagedListPager(Model, sayfa => Url.Action("Index", new { sayfa }))*@
