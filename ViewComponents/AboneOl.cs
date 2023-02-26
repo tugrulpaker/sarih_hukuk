@@ -3,19 +3,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Sarih_Law.Models;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace Sarih_Law.Controllers
+namespace Sarih_Law.ViewComponents
 {
-    public class Hakkimizda : Controller
+    public class AboneOl : ViewComponent
     {
-        // GET: /<controller>/
-        public IActionResult Index()
+        public ApplicationDbContext _db;
+        public AboneOl(ApplicationDbContext db)
         {
-            return View();
+            _db = db;
+
         }
-        public IActionResult Mete()
+
+        [HttpGet]
+        public IViewComponentResult Invoke()
+
         {
 
             return View();

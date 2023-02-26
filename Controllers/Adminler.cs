@@ -252,12 +252,13 @@ namespace Sarih_Law.Controllers
 
 
         }
-
+        [Authorize]
         public IActionResult AlanGoruntule()
         {
             k = _db.Alans.ToList();
             return View(k);
         }
+        [Authorize]
         public IActionResult AlanSil(int id)
         {
             
@@ -269,6 +270,7 @@ namespace Sarih_Law.Controllers
             return RedirectToAction("Index");
 
         }
+        [Authorize]
         public IActionResult AlanGetir(int id)
         {
 
@@ -279,6 +281,7 @@ namespace Sarih_Law.Controllers
 
             
         }
+        [Authorize]
         public IActionResult AlanGuncelle(Alan b)
         {
 
@@ -287,6 +290,16 @@ namespace Sarih_Law.Controllers
             _db.SaveChanges();
             return RedirectToAction("AlanGoruntule");
 
+
+        }
+
+        [Authorize]
+        public IActionResult AboneGoruntule()
+        {
+            var a = _db.Aboneliks.ToList();
+
+
+            return View(a);
 
         }
     }

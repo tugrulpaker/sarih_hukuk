@@ -1,0 +1,25 @@
+﻿@using Sarih_Law.Models
+@model List<Abonelik>
+@{
+
+    Layout = "/Views/Shared/_AdminLayout.cshtml";
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Mail</th>
+        
+
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.ID</td>
+            <td>@x.Email</td>
+          
+        </tr>
+
+    }
+
+</table>

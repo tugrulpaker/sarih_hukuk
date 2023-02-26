@@ -93,8 +93,8 @@
                                 <a href="/Adminler/Index" class="nav-item nav-link">Admin Paneli</a>
                             </div>
                             @* <div class="ml-auto">
-                                    <a class="btn" href="https://htmlcodex.com/law-firm-website-template">Get Appointment</a>
-                                </div>*@
+                            <a class="btn" href="https://htmlcodex.com/law-firm-website-template">Get Appointment</a>
+                        </div>*@
                         </div>
                     </nav>
                 </div>
@@ -216,22 +216,20 @@
                         <h2>Çalışma Alanlarımız</h2>
                     </div>
                     <div class="row">
-                        @foreach (var x in Model.Select(y=> y.Alan).Distinct())
+                        @foreach (var x in Model.Select(y => y.Alan).Distinct())
                         {
 
 
-                        <div class="col-lg-4 col-md-6">
-                            <div class="service-item">
-                                <div class="service-icon">
-                                    <i class="fa fa-landmark"></i>
-                                </div>
-                                <h3>@x.AlanAdi</h3>
-                                
-                                <a class="btn" href="@Url.Action("AlanDetay", "Bloglar", new { alanId = x.ID, sayfaa=1 })">Learn More</a>
-                            </div>
-                        </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="service-item">
+                    <div class="service-icon">
+                        <i class="fa fa-landmark"></i>
+                    </div>
+                    <h3>@x.AlanAdi</h3>
 
-                        }
+                    <a class="btn" href="@Url.Action("AlanDetay", "Bloglar", new { alanId = x.ID, sayfaa=1 })">Learn More</a>
+                </div>
+            </div>}
 
                     </div>
                 </div>
@@ -308,7 +306,7 @@
                                     <img src="~/img/team-2.jpg" alt="Team Image">
                                 </div>
                                 <div class="team-text">
-                                    <h2>Dylan Adams</h2>
+                                   <a href="/Hakkimizda/Mete"><h2>Dylan Adams</h2></a> 
                                     <p>Criminal Consultant</p>
                                     <div class="team-social">
                                         <a class="social-tw" href=""><i class="fab fa-twitter"></i></a>
@@ -424,133 +422,133 @@
             <!-- FAQs End -->
             <!-- Testimonial Start -->
             @*  <div class="testimonial">
-                    <div class="container">
-                        <div class="section-header">
-                            <h2>Review From Client</h2>
-                        </div>
-                        <div class="owl-carousel testimonials-carousel">
-                            <div class="testimonial-item">
-                                <i class="fa fa-quote-right"></i>
-                                <div class="row align-items-center">
-                                    <div class="col-3">
-                                        <img src="~/img/testimonial-1.jpg" alt="">
-                                    </div>
-                                    <div class="col-9">
-                                        <h2>Client Name</h2>
-                                        <p>Profession</p>
-                                    </div>
-                                    <div class="col-12">
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam accumsan lacus eget velit
-                                        </p>
-                                    </div>
-                                </div>
+            <div class="container">
+                <div class="section-header">
+                    <h2>Review From Client</h2>
+                </div>
+                <div class="owl-carousel testimonials-carousel">
+                    <div class="testimonial-item">
+                        <i class="fa fa-quote-right"></i>
+                        <div class="row align-items-center">
+                            <div class="col-3">
+                                <img src="~/img/testimonial-1.jpg" alt="">
                             </div>
-                            <div class="testimonial-item">
-                                <i class="fa fa-quote-right"></i>
-                                <div class="row align-items-center">
-                                    <div class="col-3">
-                                        <img src="~/img/testimonial-2.jpg" alt="">
-                                    </div>
-                                    <div class="col-9">
-                                        <h2>Client Name</h2>
-                                        <p>Profession</p>
-                                    </div>
-                                    <div class="col-12">
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam accumsan lacus eget velit
-                                        </p>
-                                    </div>
-                                </div>
+                            <div class="col-9">
+                                <h2>Client Name</h2>
+                                <p>Profession</p>
                             </div>
-                            <div class="testimonial-item">
-                                <i class="fa fa-quote-right"></i>
-                                <div class="row align-items-center">
-                                    <div class="col-3">
-                                        <img src="~/img/testimonial-3.jpg" alt="">
-                                    </div>
-                                    <div class="col-9">
-                                        <h2>Client Name</h2>
-                                        <p>Profession</p>
-                                    </div>
-                                    <div class="col-12">
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam accumsan lacus eget velit
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="testimonial-item">
-                                <i class="fa fa-quote-right"></i>
-                                <div class="row align-items-center">
-                                    <div class="col-3">
-                                        <img src="~/img/testimonial-4.jpg" alt="">
-                                    </div>
-                                    <div class="col-9">
-                                        <h2>Client Name</h2>
-                                        <p>Profession</p>
-                                    </div>
-                                    <div class="col-12">
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam accumsan lacus eget velit
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="testimonial-item">
-                                <i class="fa fa-quote-right"></i>
-                                <div class="row align-items-center">
-                                    <div class="col-3">
-                                        <img src="~/img/testimonial-1.jpg" alt="">
-                                    </div>
-                                    <div class="col-9">
-                                        <h2>Client Name</h2>
-                                        <p>Profession</p>
-                                    </div>
-                                    <div class="col-12">
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam accumsan lacus eget velit
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="testimonial-item">
-                                <i class="fa fa-quote-right"></i>
-                                <div class="row align-items-center">
-                                    <div class="col-3">
-                                        <img src="~/img/testimonial-2.jpg" alt="">
-                                    </div>
-                                    <div class="col-9">
-                                        <h2>Client Name</h2>
-                                        <p>Profession</p>
-                                    </div>
-                                    <div class="col-12">
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam accumsan lacus eget velit
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="testimonial-item">
-                                <i class="fa fa-quote-right"></i>
-                                <div class="row align-items-center">
-                                    <div class="col-3">
-                                        <img src="~/img/testimonial-3.jpg" alt="">
-                                    </div>
-                                    <div class="col-9">
-                                        <h2>Client Name</h2>
-                                        <p>Profession</p>
-                                    </div>
-                                    <div class="col-12">
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam accumsan lacus eget velit
-                                        </p>
-                                    </div>
-                                </div>
+                            <div class="col-12">
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam accumsan lacus eget velit
+                                </p>
                             </div>
                         </div>
                     </div>
-                </div>*@
+                    <div class="testimonial-item">
+                        <i class="fa fa-quote-right"></i>
+                        <div class="row align-items-center">
+                            <div class="col-3">
+                                <img src="~/img/testimonial-2.jpg" alt="">
+                            </div>
+                            <div class="col-9">
+                                <h2>Client Name</h2>
+                                <p>Profession</p>
+                            </div>
+                            <div class="col-12">
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam accumsan lacus eget velit
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-item">
+                        <i class="fa fa-quote-right"></i>
+                        <div class="row align-items-center">
+                            <div class="col-3">
+                                <img src="~/img/testimonial-3.jpg" alt="">
+                            </div>
+                            <div class="col-9">
+                                <h2>Client Name</h2>
+                                <p>Profession</p>
+                            </div>
+                            <div class="col-12">
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam accumsan lacus eget velit
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-item">
+                        <i class="fa fa-quote-right"></i>
+                        <div class="row align-items-center">
+                            <div class="col-3">
+                                <img src="~/img/testimonial-4.jpg" alt="">
+                            </div>
+                            <div class="col-9">
+                                <h2>Client Name</h2>
+                                <p>Profession</p>
+                            </div>
+                            <div class="col-12">
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam accumsan lacus eget velit
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-item">
+                        <i class="fa fa-quote-right"></i>
+                        <div class="row align-items-center">
+                            <div class="col-3">
+                                <img src="~/img/testimonial-1.jpg" alt="">
+                            </div>
+                            <div class="col-9">
+                                <h2>Client Name</h2>
+                                <p>Profession</p>
+                            </div>
+                            <div class="col-12">
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam accumsan lacus eget velit
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-item">
+                        <i class="fa fa-quote-right"></i>
+                        <div class="row align-items-center">
+                            <div class="col-3">
+                                <img src="~/img/testimonial-2.jpg" alt="">
+                            </div>
+                            <div class="col-9">
+                                <h2>Client Name</h2>
+                                <p>Profession</p>
+                            </div>
+                            <div class="col-12">
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam accumsan lacus eget velit
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-item">
+                        <i class="fa fa-quote-right"></i>
+                        <div class="row align-items-center">
+                            <div class="col-3">
+                                <img src="~/img/testimonial-3.jpg" alt="">
+                            </div>
+                            <div class="col-9">
+                                <h2>Client Name</h2>
+                                <p>Profession</p>
+                            </div>
+                            <div class="col-12">
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam accumsan lacus eget velit
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>*@
             <!-- Testimonial End -->
             <!-- Blog Start -->
             <div class="blog">
@@ -564,29 +562,29 @@
                         @foreach (var x in Model)
                         {
 
-                        <div class="blog-item">
+            <div class="blog-item">
 
-                            <img src="@x.BlogImage" alt="Blog">
-                            <h3>@x.Baslik</h3>
-                            <div class="meta">
-                                <i class="fa fa-list-alt"></i>
-                                <p>@x.Alan.AlanAdi</p>
-                                @*<a href="">Civil Law</a>*@
-                                <i class="fa fa-calendar-alt"></i>
-                                <p>@x.Tarih.ToString("dd.MM.yyyy")</p>
-                            </div>
-
-
-                            @{string metin = System.Text.RegularExpressions.Regex.Replace(x.Aciklama, @"<(.|\n)*?>", string.Empty); }
-
-                        @Html.Raw(metin.Substring(0,61))
+                <img src="@x.BlogImage" alt="Blog">
+                <h3>@x.Baslik</h3>
+                <div class="meta">
+                    <i class="fa fa-list-alt"></i>
+                    <p>@x.Alan.AlanAdi</p>
+                    @*<a href="">Civil Law</a>*@
+                    <i class="fa fa-calendar-alt"></i>
+                    <p>@x.Tarih.ToString("dd.MM.yyyy")</p>
+                </div>
 
 
-                            <p></p>
+                @{string metin = System.Text.RegularExpressions.Regex.Replace(x.Aciklama, @"<(.|\n)*?>", string.Empty); }
 
-                            <a class="btn" href="/Bloglar/BlogDetay/@x.ID">Read More <i class="fa fa-angle-right"></i></a>
+                @Html.Raw(metin.Substring(0, 61))
 
-                        </div>}
+
+                <p></p>
+
+                <a class="btn" href="/Bloglar/BlogDetay/@x.ID">Read More <i class="fa fa-angle-right"></i></a>
+
+            </div>}
                     </div>
 
 
@@ -595,18 +593,20 @@
             </div>
 
             <!-- Blog End -->
+
+            @await Component.InvokeAsync("AboneOl")
             <!-- Newsletter Start -->
             @*   <div class="newsletter">
-                    <div class="container">
-                        <div class="section-header">
-                            <h2>Subscribe Our Newsletter</h2>
-                        </div>
-                        <div class="form">
-                            <input class="form-control" placeholder="Email here">
-                            <button class="btn">Submit</button>
-                        </div>
-                    </div>
-                </div>*@
+            <div class="container">
+                <div class="section-header">
+                    <h2>Subscribe Our Newsletter</h2>
+                </div>
+                <div class="form">
+                    <input class="form-control" placeholder="Email here">
+                    <button class="btn">Submit</button>
+                </div>
+            </div>
+        </div>*@
             <!-- Newsletter End -->
             <!-- Footer Start -->
             <div class="footer">

@@ -25,10 +25,21 @@ namespace Sarih_Law.Controllers
             return View(blogs);
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> AboneOl(Abonelik y)
+        {
+
+            _db.Aboneliks.Add(y);
+            await _db.SaveChangesAsync();
+            return Redirect("/");
+        }
+
         public IActionResult Privacy()
         {
             return View();
         }
+
 
        
     }
