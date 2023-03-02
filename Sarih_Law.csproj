@@ -36,4 +36,9 @@
     
     <PackageReference Include="X.PagedList.Web.Common" Version="8.0.7" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Update="wwwroot\lib\owlcarousel\owl.carousel.min.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
 </Project>

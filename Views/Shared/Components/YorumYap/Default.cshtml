@@ -1,5 +1,7 @@
 ﻿
-<div class="content-form">
+
+
+<div class="blog-form-comment">
 
     <h3>Leave a comment</h3>
 
@@ -8,17 +10,23 @@
     {
         BlogId = @x.ID;
     }
-    <form method="post" asp-controller="Bloglar" asp-action="YorumYap">
+<form method="post" asp-controller="Bloglar" asp-action="YorumYap">
+    <div class="input-wrapper">
 
-        <input type="hidden" placeholder="ID" name="Blogid" value="@BlogId" />
-        <input type="text" placeholder="Name" name="Kullaniciadi" required />
-        <input type="text" placeholder="Email" name="Mail" required />
 
-        <textarea placeholder="Message" name="Yorum"></textarea>
-        <input type="submit" value="SEND" />
-    </form>
+            <input type="hidden" placeholder="ID" name="Blogid" value="@BlogId" />
+            <input type="text" placeholder="Name" name="Kullaniciadi" required />
+            <input type="text" placeholder="Email" name="Mail" required />
+
+            <textarea placeholder="Message" name="Yorum"></textarea>
+
+    </div>
+    <input type="submit" value="SEND" style="padding:6px 24px; background-color:transparent; " />
+        
+</form>
 
 </div>
+
 
 
 

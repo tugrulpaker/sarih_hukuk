@@ -289,6 +289,41 @@ a {
 /*******************************/
 /******** Carousel CSS *********/
 /*******************************/
+.owl-carousel .owl-nav {
+    position: absolute;
+    width: 100px;
+    height: 40px;
+    top: -70px;
+    left: calc(50% - 50px);
+    display: flex;  
+    align-items: center;
+    justify-content: space-between;
+}
+
+.bg-primary {
+    color: #fff;
+    background-color: #aa9166 !important;
+}
+.bg-secondary {
+    background-color: #37373f !important;
+}
+.text-primary {
+    color: #b49c73 !important;
+}
+
+    .owl-carousel .owl-nav .owl-prev,
+    .owl-carousel .owl-nav .owl-next {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #B49C73;
+        background: #37373F;
+        border-radius: 5px;
+        font-size: 22px;
+    }
+
 .carousel {
     position: relative;
     width: 100%;
@@ -1557,6 +1592,7 @@ a {
             border-radius: 0;
             border-width: 2px;
             border-color: #121518;
+           
         }
 
         .contact .contact-form textarea {
@@ -1919,4 +1955,75 @@ a {
 .pagination-sm > li:last-child > span {
     border-top-right-radius: 3px;
     border-bottom-right-radius: 3px;
+}
+
+.icon-box {
+    width: 90px;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 90px;
+}
+.blog-form-comment input , textarea{
+    border-radius: 6px;
+    border: 1px solid #aeaeae;
+    padding:8px 4px;
+}
+.blog-form-comment button {
+    border-radius: 6px;
+    border: 1px solid #aeaeae;
+    padding: 8px 4px;
+    padding:6px 12px;
+}
+.input-wrapper{
+    display:grid;
+    grid-template-columns:1fr;
+    grid-template-rows:1fr 1fr 2fr;
+    grid-gap:12px;
+    width:50%;
+    margin-bottom:12px;
+}
+
+.containerr {
+    display: flex;
+    flex-direction: row;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    gap: 24px;
+}
+
+.image {
+    float: left;
+    margin-right: 20px;
+    max-width: 200px;
+    max-height: 200px;
+}
+
+.random-text {
+    display: inline-block;
+    
+}
+
+.paragraph-text {
+    font-size: 16px;
+    color: #000;
+    clear: both;
+}
+
+.flex-containerr {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    font-size: 22px;
+    font-weight: 700;
+    color: #000;
+    text-align:center;
+}
+@media screen and (max-width: 1000px) {
+    .containerr {
+        display: flex;
+        flex-direction: column !important;
+    }
 }
