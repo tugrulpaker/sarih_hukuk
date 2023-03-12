@@ -1,0 +1,33 @@
+﻿@model Sarih_Law.Models.Ictihatler
+
+@{
+    ViewBag.Title = "IctihatGetir";
+    Layout = "/Views/Shared/_AdminLayout.cshtml";
+
+}
+
+<h2>Blog Güncelleme Sayfası</h2>
+<br />
+@using (Html.BeginForm("IctihatGuncelle", "Adminler", FormMethod.Post)) // Blog güncelle action result devrey girdiginde çalısacak ,, bloggüncelle adminler controllerinda ,,Sayfada butona tıklanıp post islemi gerçekletirildiginde calisacak
+{
+    @Html.LabelFor(x => x.ID)
+    @Html.TextBoxFor(x => x.ID, new { @class = "form-control", @readonly = "readonly" })
+    <br />
+    @Html.LabelFor(x => x.Baslik)
+    @Html.TextBoxFor(x => x.Baslik, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Tarih)
+    @Html.TextBoxFor(x => x.Tarih, new { @class = "form-control" })
+    <br />
+
+    @Html.LabelFor(x => x.Aciklama)
+    @Html.TextAreaFor(x => x.Aciklama, 15, 1, new { @id = "editorid", @class = "form-control" })
+    <br />
+    <button class="btn btn-success">Ictihat Guncelle</button>
+
+
+}
+@section Scripts{
+    <script src="~/ckeditor/ckeditor.js"></script>
+    <script>CKEDITOR.replace("editorid");</script>
+}

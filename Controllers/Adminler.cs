@@ -19,6 +19,7 @@ namespace Sarih_Law.Controllers
         public List<Blog> c;
         public List<Iletisim> z;
         public List<Alan> k;
+        public List<Ictihatler> f;
         public ApplicationDbContext _db;
         public IWebHostEnvironment _iweb;
         public Adminler(ApplicationDbContext db, IWebHostEnvironment iweb)
@@ -300,6 +301,63 @@ namespace Sarih_Law.Controllers
 
 
             return View(a);
+
+        }
+
+        [Authorize]
+        [HttpGet]
+        public IActionResult YeniIctihat()
+        {
+            return View();
+
+        }
+        [Authorize]
+        [HttpPost]
+        public IActionResult YeniIctihat(Ictihatler p)
+        {
+            _db.Ictihatlers.Add(p);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+
+            //return View();
+
+        }
+
+        [Authorize]
+        public IActionResult IctihatGoruntule()
+        {
+            var a = _db.Ictihatlers.ToList();
+
+
+            return View(a);
+
+        }
+
+        public IActionResult IctihatSil(int id)
+        {
+
+            var b = _db.Ictihatlers.Find(id);
+            _db.Ictihatlers.Remove(b);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+
+        }
+        [Authorize]
+        public IActionResult IctihatGetir(int id)
+        {
+            var bl = _db.Ictihatlers.Find(id);
+            return View("IctihatGetir", bl);
+
+        }
+
+        public IActionResult IctihatGuncelle(Ictihatler b)
+        {
+            var blg = _db.Ictihatlers.Find(b.ID);
+            blg.Aciklama = b.Aciklama;
+            blg.Baslik = b.Baslik;
+            blg.Tarih = b.Tarih;
+            _db.SaveChanges();
+            return RedirectToAction("Index");
 
         }
     }

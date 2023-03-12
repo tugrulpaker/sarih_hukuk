@@ -14,7 +14,8 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: 'EB Garamond', serif;
+     font-family: 'EB Garamond', serif;
+   /* font-family: 'math';*/
     font-weight: 600;
     font-style: italic;
     color: #121518;
@@ -1851,14 +1852,21 @@ a {
 }
 
 .pagination {
-    display: inline-block;
+    display: flex;
+    justify-content:center;
     padding-left: 0;
     margin: 20px 0;
     border-radius: 4px;
 }
 
-    .pagination > li {
+    .pagination  > li {
         display: inline;
+    }
+    .pagination > ul {
+        color:#fff;
+    }
+    .pagination >ul >li ::marker{
+        display:none !important;
     }
 
         .pagination > li > a,
@@ -2016,7 +2024,7 @@ a {
     display: flex;
     flex-direction: column;
     gap: 16px;
-    font-size: 22px;
+    font-size: 22px;ƒ√
     font-weight: 700;
     color: #000;
     text-align:center;

@@ -1,0 +1,47 @@
+﻿
+@using Sarih_Law.Models
+
+
+@{ Layout = "/Views/Shared/AsilLayout.cshtml"; }
+
+
+
+<!-- Single Page Start -->
+<div class="single">
+    <div class="container">
+        @foreach (var x in Model)
+        {
+
+<div class="section-header">
+    <h2>@x.Baslik</h2>
+</div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="ratio ratio-9x9">
+                            <img class="img-fluid rounded " src="~/img/ictihatnew.jpg" alt="Image">
+
+                        </div>
+                        <p>
+                            @Html.Raw(x.Aciklama)
+                        </p>
+
+                    </div>
+                </div>}
+
+
+
+    </div>
+
+
+    <!-- Single Page End -->
+
+
+
+
+    <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+</div>
+
+<!-- JavaScript Libraries -->
+<script src="~/ckeditor/ckeditor.js"></script>
+<!-- Template Javascript -->

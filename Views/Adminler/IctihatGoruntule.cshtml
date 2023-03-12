@@ -1,0 +1,31 @@
+﻿@using Sarih_Law.Models
+@model List<Ictihatler>
+@{
+
+    Layout = "/Views/Shared/_AdminLayout.cshtml";
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Baslik</th>
+        <th>SİL</th>
+        <th>GUNCELLE</th>
+
+
+
+    </tr>
+    @foreach (var x in Model)
+    {
+<tr>
+    <td>@x.ID</td>
+    <td>@x.Baslik</td>
+    <td><a href="/Adminler/IctihatSil/@x.ID" class="btn btn-danger">Sil</a></td>
+    <td><a href="/Adminler/IctihatGetir/@x.ID" class="btn btn-warning">Guncelle</a></td>
+
+
+</tr>
+
+    }
+
+</table>

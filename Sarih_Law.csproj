@@ -16,6 +16,7 @@
     <Folder Include="Views\Hakkimizda\" />
     <Folder Include="Views\Iletisimler\" />
     <Folder Include="Views\Shared\Components\AboneOl\" />
+    <Folder Include="Views\Ictihat\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="Views\Bloglar\ .single.cshtml" />

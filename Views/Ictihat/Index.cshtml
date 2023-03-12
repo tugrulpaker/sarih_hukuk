@@ -1,0 +1,66 @@
+﻿@using X.PagedList.Mvc.Core;
+@using X.PagedList.Mvc.Common;
+@using X.PagedList;
+@using Sarih_Law.Models
+@model IPagedList<Ictihatler>
+@{ Layout = "/Views/Shared/AsilLayout.cshtml"; }
+
+<!-- Blog Start -->
+<div class="blog">
+
+    <div class="container">
+        <div class="section-header">
+            <h2>Latest From Blog</h2>
+        </div>
+
+        <div class="row blog-page">
+
+
+            @foreach (var x in Model)
+            {
+
+<div class="col-lg-4 col-md-6 blog-item">
+    <img src="~/img/ictihatnew.jpg" alt="Blog">
+    <h3>@x.Baslik</h3>
+    <div class="meta">
+        @*<i class="fa fa-list-alt"></i>
+        <p>@x.Alan.AlanAdi</p>
+        <a href="">Civil Law</a>*@
+
+        <i class="fa fa-calendar-alt"></i>
+        <p>@x.Tarih.ToString("dd.MM.yyyy")</p>
+    </div>
+    <p>
+
+        @{string metin = System.Text.RegularExpressions.Regex.Replace(x.Aciklama, @"<(.|\n)*?>", string.Empty); }
+
+        @Html.Raw(metin.Substring(0, 61))
+    </p>
+    <a class="btn" href="/Ictihat/IctihatDetay/@x.ID">Read More <i class="fa fa-angle-right"></i></a>
+</div>}
+
+        </div>
+
+
+
+        @* @Html.PagedListPager(Model, sayfa => Url.Action("Index", new { sayfa }))*@
+    </div>
+    @*  @X.PagedList.Mvc.Core.HtmlHelper.PagedListPager(Html, Model, sayfa => Url.Action("Index", new { sayfa }))*@
+    @* @Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("Index", new {sayfa =sayfa })) *@
+    @* @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))*@
+
+
+
+
+</div>
+<div class="pagination">
+    <ul>
+        @if (Model.PageCount > 1)
+        {
+<li>@Html.PagedListPager(Model, sayfa => Url.Action("Index", new { sayfa }), PagedListRenderOptions.ClassicPlusFirstAndLast)</li>}
+    </ul>
+</div>
+
+
+
+<!-- Blog End -->

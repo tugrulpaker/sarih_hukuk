@@ -17,7 +17,7 @@ namespace Sarih_Law.Models
         public DbSet <Iletisim> Iletisims { get; set; }
         public DbSet <Alan> Alans { get; set; }
         public DbSet <Abonelik> Aboneliks { get; set; }
-
+        public DbSet<Ictihatler> Ictihatlers { get; set; }
 
     }
 }
