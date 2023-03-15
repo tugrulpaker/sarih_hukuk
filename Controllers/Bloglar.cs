@@ -33,7 +33,7 @@ namespace Sarih_Law.Controllers
             //int pageSize = 10;
             //int pageNumber = (page ?? 1);
             //var degerler = _db.Blogs.Include(b => b.Alan).OrderBy(b => b.Baslik).Skip((pageNumber - 1) * pageSize).Take(pageSize).ToList();
-            var degerler = _db.Blogs.Include(b => b.Alan).OrderByDescending(x => x.Tarih).ToPagedList(sayfa, 6);
+            var degerler = _db.Blogs.Include(b => b.Alan).OrderByDescending(x => x.ID).ToPagedList(sayfa, 6);
             return View(degerler);
         }
         public ActionResult BlogDetay(int id) //Blog basliginin üstüne bastigimda id parametresiyle değer döndürüp beni detayblog viewine aktaricak

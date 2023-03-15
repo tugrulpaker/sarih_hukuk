@@ -50,42 +50,44 @@
     </a>
 </div>
 <!-- Carousel End -->
-<!-- Top Feature Start-->
-<div class="feature-top">
-    <div class="container-fluid">
-        <div class="row align-items-center">
-            <div class="col-md-3 col-sm-6">
-                <div class="feature-item">
-                    <i class="far fa-check-circle"></i>
-                    <h3>Legal</h3>
-                    <p>Govt Approved</p>
+@*
+    <!-- Top Feature Start-->
+    <div class="feature-top">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-md-3 col-sm-6">
+                    <div class="feature-item">
+                        <i class="far fa-check-circle"></i>
+                        <h3>Legal</h3>
+                        <p>Govt Approved</p>
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <div class="feature-item">
-                    <i class="fa fa-user-tie"></i>
-                    <h3>Attorneys</h3>
-                    <p>Expert Attorneys</p>
+                <div class="col-md-3 col-sm-6">
+                    <div class="feature-item">
+                        <i class="fa fa-user-tie"></i>
+                        <h3>Attorneys</h3>
+                        <p>Expert Attorneys</p>
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <div class="feature-item">
-                    <i class="far fa-thumbs-up"></i>
-                    <h3>Success</h3>
-                    <p>99.99% Case Won</p>
+                <div class="col-md-3 col-sm-6">
+                    <div class="feature-item">
+                        <i class="far fa-thumbs-up"></i>
+                        <h3>Success</h3>
+                        <p>99.99% Case Won</p>
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <div class="feature-item">
-                    <i class="far fa-handshake"></i>
-                    <h3>Support</h3>
-                    <p>Quick Support</p>
+                <div class="col-md-3 col-sm-6">
+                    <div class="feature-item">
+                        <i class="far fa-handshake"></i>
+                        <h3>Support</h3>
+                        <p>Quick Support</p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<!-- Top Feature End-->
+    <!-- Top Feature End-->
+*@
 <!-- About Start -->
 <div class="about">
     <div class="container">
@@ -157,15 +159,15 @@
                 <div class="owl-carousel service-carousel position-relative" style="margin-top: -100px; padding: 0 30px;">
                     @foreach (var x in Model.Select(y => y.Alan).Distinct())
                     {
-                    <div class="d-flex flex-column align-items-center text-center bg-white rounded pt-4">
-                        <div class="icon-box bg-secondary text-primary mt-2 mb-4">
-                            <i class="fa fa-2x fa-landmark"></i>
-                        </div>
-                        <h5 class="mb-4 px-4">@x.AlanAdi</h5>
-                        <p class="m-0">Takim stet justo elitr sea eirmod vero ipsum. Sed Stet clita sit duo dolor stet at at. Tempor dolor sit ipsum</p>
+        <div class="d-flex flex-column align-items-center text-center bg-white rounded pt-4">
+            <div class="icon-box bg-secondary text-primary mt-2 mb-4">
+                <i class="fa fa-2x fa-landmark"></i>
+            </div>
+            <h5 class="mb-4 px-4">@x.AlanAdi</h5>
+            <p class="m-0">@x.AlanAdi konu başlığındaki bloglar için daha fazlasına tıklayınız</p>
 
-                    <a class="btn" href="@Url.Action("AlanDetay", "Bloglar", new { alanId = x.ID, sayfaa=1 })">Learn More </a>
-                    </div>}
+            <a class="btnn" href="@Url.Action("AlanDetay", "Bloglar", new { alanId = x.ID, sayfaa=1 })">Daha Fazlası </a>
+        </div>}
                 </div>
 
             </div>
@@ -224,63 +226,66 @@
     </div>
     <!-- Services End -->
 *@
-<!-- Feature Start -->
-<div class="feature">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-7">
-                <div class="section-header">
-                    <h2>Neden Sarih Hukuk</h2>
-                </div>
-                <div class="row align-items-center feature-item">
-                    <div class="col-5">
-                        <div class="feature-icon">
-                            <i class="fa fa-gavel"></i>
+
+
+    <!-- Feature Start -->
+    <div class="feature">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7">
+                    <div class="section-header">
+                        <h2>Neden Sarih Hukuk</h2>
+                    </div>
+                    <div class="row align-items-center feature-item">
+                        <div class="col-5">
+                            <div class="feature-icon">
+                                <i class="fa fa-gavel"></i>
+                            </div>
+                        </div>
+                        <div class="col-7">
+                            <h3>Best law practices</h3>
+                            <p>
+                                Lorem ipsum dolor sit amet elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non vulputate.
+                            </p>
                         </div>
                     </div>
-                    <div class="col-7">
-                        <h3>Best law practices</h3>
-                        <p>
-                            Lorem ipsum dolor sit amet elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non vulputate.
-                        </p>
-                    </div>
-                </div>
-                <div class="row align-items-center feature-item">
-                    <div class="col-5">
-                        <div class="feature-icon">
-                            <i class="fa fa-balance-scale"></i>
+                    <div class="row align-items-center feature-item">
+                        <div class="col-5">
+                            <div class="feature-icon">
+                                <i class="fa fa-balance-scale"></i>
+                            </div>
+                        </div>
+                        <div class="col-7">
+                            <h3>Efficiency & Trust</h3>
+                            <p>
+                                Lorem ipsum dolor sit amet elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non vulputate.
+                            </p>
                         </div>
                     </div>
-                    <div class="col-7">
-                        <h3>Efficiency & Trust</h3>
-                        <p>
-                            Lorem ipsum dolor sit amet elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non vulputate.
-                        </p>
-                    </div>
-                </div>
-                <div class="row align-items-center feature-item">
-                    <div class="col-5">
-                        <div class="feature-icon">
-                            <i class="far fa-smile"></i>
+                    <div class="row align-items-center feature-item">
+                        <div class="col-5">
+                            <div class="feature-icon">
+                                <i class="far fa-smile"></i>
+                            </div>
+                        </div>
+                        <div class="col-7">
+                            <h3>Results you deserve</h3>
+                            <p>
+                                Lorem ipsum dolor sit amet elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non vulputate.
+                            </p>
                         </div>
                     </div>
-                    <div class="col-7">
-                        <h3>Results you deserve</h3>
-                        <p>
-                            Lorem ipsum dolor sit amet elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non vulputate.
-                        </p>
-                    </div>
                 </div>
-            </div>
-            <div class="col-md-5">
-                <div class="feature-img">
-                    <img src="~/img/feature.jpg" alt="Feature">
+                <div class="col-md-5">
+                    <div class="feature-img">
+                        <img src="~/img/feature.jpg" alt="Feature">
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<!-- Feature End -->
+    <!-- Feature End -->
+
 <!-- Team Start -->
 <div class="team">
     <div class="container">
@@ -551,29 +556,44 @@
             @foreach (var x in Model)
             {
 
-<div class="blog-item">
+            <div class="blog-item">
 
-    <img src="@x.BlogImage" alt="Blog">
-    <h3>@x.Baslik</h3>
-    <div class="meta">
-        <i class="fa fa-list-alt"></i>
-        <p>@x.Alan.AlanAdi</p>
-        @*<a href="">Civil Law</a>*@
-        <i class="fa fa-calendar-alt"></i>
-        <p>@x.Tarih.ToString("dd.MM.yyyy")</p>
-    </div>
+                <img src="@x.BlogImage" alt="Blog">
+                <h3>@x.Baslik</h3>
+                <div class="meta">
+                    <i class="fa fa-list-alt"></i>
+                    <p>@x.Alan.AlanAdi</p>
+                    @*<a href="">Civil Law</a>*@
+                    <i class="fa fa-calendar-alt"></i>
+                    <p>@x.Tarih.ToString("dd.MM.yyyy")</p>
+                </div>
 
-
-    @{string metin = System.Text.RegularExpressions.Regex.Replace(x.Aciklama, @"<(.|\n)*?>", string.Empty); }
-
-    @Html.Raw(metin.Substring(0, 61))
+                @*
+        @{string metin = System.Text.RegularExpressions.Regex.Replace(x.Aciklama, @"<(.|\n)*?>", string.Empty); }
 
 
-    <p></p>
+         @Html.Raw(metin.Substring(0, 61))*@
 
-    <a class="btn" href="/Bloglar/BlogDetay/@x.ID">Read More <i class="fa fa-angle-right"></i></a>
+                @*
+            @{ string aciklama = Regex.Replace(x.Aciklama, @"<[^>]+>|&nbsp;", "").TrimStart();
+                                aciklama = aciklama.Substring(0, Math.Min(aciklama.Length, 61)); }
 
-</div>}
+
+        <p>@aciklama</p>
+                *@
+
+                @{ var aciklama = x.Aciklama;
+                                    aciklama = Regex.Replace(aciklama, "<.*?>", string.Empty); // HTML etiketlerini kaldır
+                                    aciklama = System.Net.WebUtility.HtmlDecode(aciklama); // HTML özel karakterleri çöz
+                                    aciklama = aciklama.TrimStart(); // Metnin başındaki boşlukları kaldır
+                                    var shortened = aciklama.Substring(0, Math.Min(aciklama.Length, 61)); }
+                <p>@Html.Raw(shortened)</p>
+
+                <p></p>
+
+                <a class="btn" href="/Bloglar/BlogDetay/@x.ID">Read More <i class="fa fa-angle-right"></i></a>
+
+            </div>}
         </div>
 
 

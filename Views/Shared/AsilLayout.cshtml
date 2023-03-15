@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -42,13 +43,13 @@
                     <div class="col-lg-9">
                         <div class="top-bar-right">
                             @* <div class="text">
-            <h2>7/24</h2>
-            <p>Açık Saatler Pzt - Pzr</p>
-        </div>
-        <div class="text">
-            <h2>+123 456 7890</h2>
-            <p>Bize Danışın</p>
-        </div>
+                                    <h2>7/24</h2>
+                                    <p>Açık Saatler Pzt - Pzr</p>
+                                </div>
+                                <div class="text">
+                                    <h2>+123 456 7890</h2>
+                                    <p>Bize Danışın</p>
+                                </div>
                             *@
                             <div class="social">
                                 <a href=""><i class="fab fa-twitter"></i></a>
@@ -80,7 +81,7 @@
                             <a href="/Bloglar/Index" class="nav-item nav-link @((ViewContext.RouteData.Values["controller"].ToString() == "Bloglar" && ViewContext.RouteData.Values["action"].ToString() == "Index") ? "active" : "")">Bloglar</a>
                             <a href="/Iletisimler/Index" class="nav-item nav-link @((ViewContext.RouteData.Values["controller"].ToString() == "Iletisimler" && ViewContext.RouteData.Values["action"].ToString() == "Index") ? "active" : "")">Iletisim</a>
                             <a href="/Ictihat/Index" class="nav-item nav-link @((ViewContext.RouteData.Values["controller"].ToString() == "Ictihat" && ViewContext.RouteData.Values["action"].ToString() == "Index") ? "active" : "")">Ictihatler</a>
-                            
+
 
                             <div class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
@@ -119,11 +120,8 @@
                             <div class="col-md-6 col-lg-4">
                                 <div class="footer-link">
                                     <h2>Çalışma Alanlarımız</h2>
-                                    <a href="">Medeni Hukuk</a>
-                                    <a href="">Aile Hukuku</a>
-                                    <a href="">İş Hukuku</a>
-                                    <a href="">Eğitim Hukuku</a>
-                                    <a href="">Ceza Hukuku</a>
+
+                                       @await Component.InvokeAsync("AlanGetiren")
                                 </div>
                             </div>
                             <div class="col-md-6 col-lg-4">

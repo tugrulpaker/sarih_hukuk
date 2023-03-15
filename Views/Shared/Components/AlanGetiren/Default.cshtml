@@ -1,0 +1,6 @@
+﻿@model List<Alan>
+
+@foreach(var x in Model)
+{
+    <a href="@Url.Action("AlanDetay", "Bloglar", new { alanId = x.ID, sayfaa=1 })">@x.AlanAdi</a>
+}

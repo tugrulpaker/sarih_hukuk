@@ -24,6 +24,7 @@ namespace Sarih_Law.Controllers
             var blogs = _db.Blogs.Include(b => b.Alan).ToList();
             return View(blogs);
         }
+        
 
         [HttpPost]
         [ValidateAntiForgeryToken]

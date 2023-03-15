@@ -1,6 +1,7 @@
 ﻿@using X.PagedList.Mvc.Core;
 @using X.PagedList.Mvc.Common;
 @using X.PagedList;
+@using System.Text.RegularExpressions;
 @using Sarih_Law.Models
 @model IPagedList<Ictihatler>
 @{ Layout = "/Views/Shared/AsilLayout.cshtml"; }
@@ -19,25 +20,27 @@
             @foreach (var x in Model)
             {
 
-<div class="col-lg-4 col-md-6 blog-item">
-    <img src="~/img/ictihatnew.jpg" alt="Blog">
-    <h3>@x.Baslik</h3>
-    <div class="meta">
-        @*<i class="fa fa-list-alt"></i>
-        <p>@x.Alan.AlanAdi</p>
-        <a href="">Civil Law</a>*@
+            <div class="col-lg-4 col-md-6 blog-item">
+                <img src="~/img/ictihatnew.jpg" alt="Blog">
+                <h3>@x.Baslik</h3>
+                <div class="meta">
+                    @*<i class="fa fa-list-alt"></i>
+            <p>@x.Alan.AlanAdi</p>
+            <a href="">Civil Law</a>*@
 
-        <i class="fa fa-calendar-alt"></i>
-        <p>@x.Tarih.ToString("dd.MM.yyyy")</p>
-    </div>
-    <p>
-
-        @{string metin = System.Text.RegularExpressions.Regex.Replace(x.Aciklama, @"<(.|\n)*?>", string.Empty); }
-
-        @Html.Raw(metin.Substring(0, 61))
-    </p>
-    <a class="btn" href="/Ictihat/IctihatDetay/@x.ID">Read More <i class="fa fa-angle-right"></i></a>
-</div>}
+                    <i class="fa fa-calendar-alt"></i>
+                    <p>@x.Tarih.ToString("dd.MM.yyyy")</p>
+                </div>
+                
+                    @{ var aciklama = x.Aciklama;
+                        aciklama = Regex.Replace(aciklama, "<.*?>", string.Empty); // HTML etiketlerini kaldır
+                        aciklama = System.Net.WebUtility.HtmlDecode(aciklama); // HTML özel karakterleri çöz
+                        aciklama = aciklama.TrimStart(); // Metnin başındaki boşlukları kaldır
+                        var shortened = aciklama.Substring(0, Math.Min(aciklama.Length, 61)); }
+                <p>@Html.Raw(shortened)</p>
+                
+                <a class="btn" href="/Ictihat/IctihatDetay/@x.ID">Read More <i class="fa fa-angle-right"></i></a>
+            </div>}
 
         </div>
 
@@ -57,7 +60,8 @@
     <ul>
         @if (Model.PageCount > 1)
         {
-<li>@Html.PagedListPager(Model, sayfa => Url.Action("Index", new { sayfa }), PagedListRenderOptions.ClassicPlusFirstAndLast)</li>}
+<li>@Html.PagedListPager(Model, sayfa => Url.Action("Index", new { sayfa }), PagedListRenderOptions.ClassicPlusFirstAndLast)</li>
+}
     </ul>
 </div>
 

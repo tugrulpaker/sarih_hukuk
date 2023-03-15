@@ -2007,10 +2007,21 @@ a {
     margin-right: 20px;
     max-width: 200px;
     max-height: 200px;
+
 }
+@media screen and (max-width:1024px){
+    .image{
+        display:flex;
+        justify-content:center;
+        float:unset;
+        margin:0 auto;
+    }
+}
+
 
 .random-text {
     display: inline-block;
+   
     
 }
 
@@ -2034,4 +2045,62 @@ a {
         display: flex;
         flex-direction: column !important;
     }
+}
+
+.comment-list {
+    list-style: none;
+    margin-top: 30px;
+    padding:1px;
+}
+
+    .comment-list li {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-bottom: 30px;
+      
+    }
+
+        .comment-list li img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-right: 20px;
+            
+        }
+
+.comment-details {
+    flex-grow: 1;
+}
+
+.comment-author {
+    font-size: 18px;
+    margin-bottom: 5px;
+   
+}
+
+.comment-date {
+    font-size: 14px;
+    color: #999;
+    margin-bottom: 10px;
+}
+
+.comment-text {
+    font-size: 16px;
+    line-height: 1.5;
+   
+}
+.btnn {
+    position: relative;
+    margin-top: 15px;
+    padding: 10px 40px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #aa9166;
+    border: 2px solid #aa9166;
+    border-radius: 0;
+    background: #121518;
+    transition: .3s;
 }
